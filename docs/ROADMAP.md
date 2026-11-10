@@ -5,7 +5,8 @@
 - [ ] Confirm current Yandex MapKit Full Android SDK access, license, attribution, and panorama API availability
 - [ ] Confirm Unity/OpenXR/Quest compatibility for the selected Yandex panorama rendering path
 - [ ] Choose Unity and Meta XR SDK versions
-- [ ] Add Unity project skeleton
+- [x] Add initial Unity C# prototype scripts and setup guide
+- [ ] Add complete Unity project skeleton and pinned package manifest
 
 ## Phase 1 — panorama proof of concept
 - [ ] Initialize OpenXR for Meta Quest 3
@@ -17,8 +18,11 @@
 ## Phase 2 — navigation
 - [ ] Read available panorama navigation links/positions from supported API
 - [ ] Add gaze/controller-selectable navigation arrows
-- [ ] Map right thumbstick directions to valid neighboring panorama links
+- [ ] Map right thumbstick directions to valid neighboring panorama links (optional secondary navigation)
 - [ ] Add comfortable transition (fade / short movement cue)
+- [x] Specify left-stick locomotion: X = smooth yaw turn, Y = forward/back movement
+- [x] Specify unique runtime control rebinding with local persistence
+- [x] Specify Meta runtime controller models and animated input visuals
 
 ## Phase 3 — in-world map
 - [ ] Show/hide map with right controller B
