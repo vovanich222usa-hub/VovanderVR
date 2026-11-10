@@ -1,45 +1,47 @@
 # Vovander VR
 
-Standalone VR street-panorama explorer for Meta Quest 3, using Yandex Maps panorama services through supported SDK/API integrations.
+Самостоятельное VR-приложение для Meta Quest 3. Проект предназначен для исследования улиц и мест с помощью панорам Яндекс Карт.
 
-## Project status
+## Состояние проекта
 
-**Phase 0 — repository initialized / technical validation in progress.**
+**Этап 0 — репозиторий создан, проверка технических возможностей продолжается.**
 
-The first milestone is a Quest 3 APK that can display a real Yandex panorama in stereo VR and respond to head movement. Navigation arrows, thumbstick movement, and an in-world map follow after the panorama integration is proven.
+Первая цель — подготовить APK для Quest 3, который открывает настоящую панораму Яндекса в VR, отображает её для обоих глаз и правильно реагирует на повороты головы. Стрелки перехода, управление стиками и виртуальная карта будут добавлены после проверки способа отображения панорам.
 
-## Target platform
+## Целевая платформа
 
 - Meta Quest 3
 - Android / ARM64
 - Unity 6
 - OpenXR
 - Meta XR SDK / Interaction SDK
-- Yandex MapKit Full, subject to current SDK terms and technical compatibility
+- Яндекс MapKit Full — при условии совместимости с выбранным способом отображения и соблюдения действующих условий использования
 
-## Planned controls
+## Планируемое управление
 
-| Input | Action |
+| Кнопка или действие | Назначение |
 |---|---|
-| Head movement | Look around the 360° panorama |
-| Right thumbstick | Navigate between available panorama nodes |
-| Panorama arrow selection | Move to linked panorama |
-| Right controller B | Toggle the in-world map |
-| Map selection | Move to a selected panorama location |
-| Left thumbstick up/down | Reserved for historical panorama selection (later phase) |
+| Повороты головы | Осмотр панорамы на 360° |
+| Левый стик влево / вправо | Плавный поворот игрока |
+| Левый стик вверх / вниз | Движение вперёд / назад |
+| Стрелка на панораме | Переход к связанной панораме |
+| Кнопка B правого контроллера | Открыть или закрыть виртуальную карту |
+| Выбор точки на карте | Перейти к панораме выбранного места |
+| Правый стик | Дополнительная навигация по доступным переходам, настраиваемая |
+| Переключение исторических панорам | Запланировано на следующий этап |
 
-## Important integration constraint
+## Важное ограничение при работе с панорамами
 
-Do not download, extract, cache, or repackage Yandex panorama imagery as independent textures unless the applicable Yandex license and SDK explicitly permit it. The implementation must use an authorized display path and preserve required attribution.
+Нельзя скачивать, извлекать, сохранять или повторно распространять изображения панорам Яндекса в виде отдельных текстур, если это прямо не разрешено действующей лицензией и SDK. Приложение должно показывать панорамы разрешённым способом и сохранять обязательные обозначения Яндекса.
 
-Historical panorama browsing is deferred until the current SDK's historical panorama API and date metadata are verified.
+Исторические панорамы будут добавлены после проверки доступности дат съёмки и соответствующих методов SDK.
 
-## Repository layout
+## Структура репозитория
 
-- `docs/` — architecture, milestones, SDK validation notes
-- `UnityProject/` — Unity project will be added after SDK/version setup is confirmed
-- `README.md` — project overview
+- `docs/` — архитектура, этапы разработки и результаты проверки SDK
+- `UnityProject/` — исходные файлы и будущий проект Unity
+- `README.md` — описание проекта
 
-## Build status
+## Состояние сборки
 
-No APK has been built yet. A working Unity editor installation, Android build modules, Meta Quest SDK setup, and Yandex API credentials are required for a device build.
+Готового APK пока нет. Для сборки потребуется установленная среда Unity с модулями Android, настроенные Meta XR SDK и OpenXR, а также ключ доступа к сервисам Яндекса.
