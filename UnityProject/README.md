@@ -1,30 +1,39 @@
 # Unity prototype setup
 
-This folder contains the first C# prototype scripts. It is not yet a complete Unity project and cannot be built into an APK until the Unity project, package versions, scenes, and licensed SDK assets are installed.
+Эта папка содержит начальные C#-скрипты и инструкции. Это ещё не полный Unity-проект и не готовый APK: для сборки необходимо добавить сам проект Unity, закрепить версии пакетов, создать сцену и подключить SDK.
 
-## Required packages
+## Обязательные пакеты
 
 - Unity Input System
 - Unity OpenXR Plugin
 - Meta XR Core SDK
-- Meta XR Interaction SDK (for Meta controller/runtime model prefabs)
+- Meta XR Interaction SDK / официальные примеры Meta
 
-Use the current Meta setup guide and pin compatible package versions in the actual Unity project before committing generated package lock files.
+## Подключение сцены
 
-## Scene wiring
+1. Создать VR-сцену для Quest и настроить Android / ARM64.
+2. Добавить `VovanderLocomotion` на корневой объект игрока. Назначить действие Vector2 для левого стика: горизонталь поворачивает, вертикаль перемещает вперёд и назад.
+3. Добавить `VovanderMapToggle`, назначить кнопку B правого контроллера и объект виртуальной карты.
+4. Добавить `VovanderRebindingManager` на объект настроек и заполнить список переназначаемых действий.
+5. Добавить локальные модели левого и правого контроллеров Meta из официальных ресурсов Meta, если их условия лицензии разрешают включение в приложение. Подключить анимации из официальных примеров.
 
-1. Create the Quest OpenXR rig and configure Android / ARM64.
-2. Add `VovanderLocomotion` to the player rig root. Assign a Vector2 Input Action bound to the left controller primary 2D axis. Left X rotates; left Y moves forward/back.
-3. Add `VovanderMapToggle` and bind its action to the right controller B / secondary button. Assign the world-space map panel.
-4. Add `VovanderRebindingManager` to the settings object. Add all rebindable InputActionReferences to its Actions list. Connect settings buttons to `BeginRebind(actionListIndex, bindingIndex)`.
-5. Add `ControllerInputAnimator` under each controller visual. Assign trigger/grip/stick actions and the corresponding moving pivots from the model hierarchy.
+## Модели контроллеров
 
-## Meta controller models
+Основное требование — локальные модели внутри APK, чтобы они отображались без сетевой загрузки. Дополнительно можно предусмотреть runtime-модели Quest как резервный или альтернативный путь, но нельзя полагаться только на них.
 
-Use Meta's `OVRRuntimeControllerPrefab` under the left and right controller anchors, configured as L Touch and R Touch. Enable Render Model Support in OVR Manager. The runtime model is supplied by the Quest runtime and tracks the actual controller. See the official Meta guide linked in `docs/CONTROLLERS_AND_INPUT.md`.
+Подробности и ссылки: `docs/CONTROLLERS_AND_INPUT.md`.
 
-The animator script is optional and requires the relevant pivots to exist in the selected model hierarchy. Do not assume pivot names: inspect the actual runtime model / SDK sample and assign them in the Inspector. If the runtime model already animates controls natively, avoid double-driving those parts.
+## Правило комментариев в коде
 
-## Important
+Все комментарии в исходниках должны быть строго на русском языке и понятны человеку без опыта программирования.
 
-The scripts are a prototype foundation. They have not yet been compiled or tested in Unity or on a Quest 3 device. The Yandex panorama rendering integration is a separate feasibility milestone.
+- Каждая процедура и функция должна иметь пояснение, что она делает.
+- Важные переменные, настройки и нестандартные решения должны быть объяснены.
+- Комментарии должны объяснять смысл действий простыми словами, а не повторять название команды.
+- Новые скрипты и изменяемые скрипты проверяются на соблюдение этого правила.
+
+Имена классов, методов и переменных могут оставаться на английском для совместимости с Unity и C#.
+
+## Важно
+
+Скрипты пока не собраны и не проверены в Unity или на Quest 3. Подключение панорам Яндекса остаётся отдельной технической задачей.
