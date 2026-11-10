@@ -7,6 +7,8 @@
 - [ ] Choose Unity and Meta XR SDK versions
 - [x] Add initial Unity C# prototype scripts and setup guide
 - [ ] Add complete Unity project skeleton and pinned package manifest
+- [x] Record requirement for Russian plain-language comments in every method and important code section
+- [x] Specify locally bundled Meta controller assets as primary visuals, with runtime model as optional fallback
 
 ## Phase 1 — panorama proof of concept
 - [ ] Initialize OpenXR for Meta Quest 3
